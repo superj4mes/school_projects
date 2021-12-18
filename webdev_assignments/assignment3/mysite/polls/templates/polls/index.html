@@ -1,0 +1,16 @@
+<h1>Polls app implemented with Django and Python</h1>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/styles.css' %}">
+
+<img src="{% static 'polls/images/python_logo.png' %}" alt="Python Logo" width="290" height="82">
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head_content %}
+<link rel="stylesheet" type="text/css" href={% static 'gallery/css/home.css' %} />
+{% endblock %}
+
+{% block content %}
+
+<div class="header">
+<img src="static/VJA_transparent_logo.png" alt="VJA Logo">
+</div>
+
+<hr />
+
+{% if list_of_galleries %}
+<br />
+<div class="content-center">
+<!--Bootstrap card with slider class-->
+
+{% for gallery, images in list_of_galleries.items %}
+
+<div class="card cardcont">
+    <div id="{{ gallery.id }}" class="carousel slide">
+        <div class="carousel-inner">
+            {% if images %}
+                {% for image in images %}
+                {% if forloop.first %}
+                <div class="carousel-item active">
+                    <a href="gallery/{{ gallery.id}}" class="d-block mb-4 h-100">
+                        <img class="d-block w-100 img-inner" src="{{ image.thumbnail_large.url }}" />
+                    </a>
+                </div>
+                {% else %}
+                <div class="carousel-item">
+                    <a href="gallery/{{ gallery.id}}" class="d-block mb-4 h-100">
+                        <img class="img-inner d-block w-100" src="{{ image.thumbnail_large.url }}" />
+                    </a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            {% else %}
+                <div class="carousel-item active">
+                    <a href="gallery/{{ gallery.id}}" class="d-block mb-4 h-100">
+                        <img class="d-block w-100 img-inner" src="static/placeholder.jpg"/>
+                    </a>
+                </div>
+
+            {% endif %}
+        </div>
+        <div class="tekstikentta">
+        <span class="imagedesc"><strong>{{ gallery.name}}</strong><br /></span>
+        <span class="imagedesc"><small>Gallery owner: {{ gallery.owner }}</small><br/></span>
+        <span class="imagedesc"><small>Created: {{ gallery.time|date:"d.m.Y"}}</small><br/></span>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

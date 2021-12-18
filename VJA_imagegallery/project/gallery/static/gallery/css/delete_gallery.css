@@ -1,0 +1,12 @@
+.input-group h3 {
+    color: aliceblue;
+    text-align: center;
+}
+form {
+    display: block;
+    text-align: center;
+}
+
+.login-ruutu {
+    padding: 20px;
+}

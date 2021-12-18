@@ -1,0 +1,76 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: rgb(2, 0, 36);
+	background: linear-gradient( 90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+}
+
+.wrapper {
+	max-width: 1024px;
+	margin: 0 auto;
+	font: 1.2em Helvetica, arial, sans-serif;
+}
+
+.wrapper>* {
+	border: 2px solid #000000;
+	background: rgb(2, 0, 36);
+	background: linear-gradient( 90deg, rgb(187, 184, 238) 15%, rgb(179, 179, 226) 40%, rgba(0, 212, 255, 1) 100%);
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.inner-area {
+	width: 200px;
+	float: left;
+	height: 100%;
+	margin: 0;
+	padding: 5px;
+}
+
+.submit {
+	width: 700px;
+	text-align: left;
+	float: left;
+	height: 100%;
+	margin: 0 auto;
+	padding: 5px;
+}
+
+.main-head {
+	grid-area: header;
+}
+
+.content {
+	grid-area: content;
+}
+
+.input-area {
+	grid-area: input-area;
+}
+
+.output-area {
+	grid-area: output-area;
+	font-size: 14px;
+}
+
+.wrapper {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-areas: "header" "input-area" "content" "output-area";
+}
+
+@media (min-width: 300px) {
+	.wrapper {
+		grid-template-columns: 330px minmax(auto, 20%);
+		grid-template-areas: "header     header" "input-area input-area" "content    content" "content    output-area";
+	}
+}
+
+@media (min-width: 768px) {
+	.wrapper {
+		grid-template-columns: 1fr 4fr 1fr;
+		grid-template-areas: "header     header      header" "input-area input-area  input-area" "content    content     output-area" "content    content     output-area";
+	}
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head_content %}
+<link rel="stylesheet" type="text/css" href={% static 'gallery/css/gallery_image_adminstration.css' %} />
+{% endblock %}
+
+{% block content %}
+
+<br />
+{% if galleryowner and user.is_authenticated %} {% if images %}
+<h1>Gallery: {{ images.0.gallery.name }} | Delete photos</h1>
+
+<label for="id_selectbox">Order images by:</label>
+<select class="form-select form-select-sm" onchange="sortelements.call(this, event)" id="id_selectbox">
+    <option data-sorttype="desc" value="date">Date, descending</option>
+    <option data-sorttype="asc" value="date">Date, ascending</option>
+</select>
+<div class="content-center">
+<div id="sortbody" class="row">
+  {% for gallery_image in images %}
+  <div data-time="{{ gallery_image.created|date:'c' }}" class="col-xl-3 col-lg-4 col-md-6 col-xs-12 img-outer">
+    <form class="form-center" method="POST" name="{{ gallery_image.id }}" action="deleteimage/{{ gallery_image.id }}">
+      {% csrf_token %}
+      <div class="cardcont card">
+          <img class="card-img-top" src="{{ gallery_image.thumbnail_large.url }}" class="img-fluid rounded"
+            alt="{{ gallery_image.title }}" />
+        <span class="imagedesc">Uploaded:<br />{{ gallery_image.created|date:"d.m.Y H:i:s"}}</span>
+        <input class="btn btn-dark" type="submit" name="submit" value="Delete" />
+      </div>
+    </form>
+  </div>
+  {% endfor %}
+</div>
+</div>
+{% else %}
+<h1>You have no images in this gallery</h1>
+{% endif %} {% else %}
+<h1>You have no right to be here... And you know it!</h1>
+{% endif %}
+<script src={% static 'gallery/js/sort.js' %}></script>
+{% endblock %}
+

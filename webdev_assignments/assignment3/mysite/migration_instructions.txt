@@ -1,0 +1,51 @@
+sudo apt -y install mysql-server
+sudo mysql_secure_installation utility
+sudo service mysql status
+sudo apt -y install libmysqlclient-dev
+sudo pip3 install mysqlclient
+sudo mysql -u root -p
+mysql> create database djangodb CHARACTER SET utf8;
+mysql> CREATE USER 'user_name'@'localhost' IDENTIFIED BY 'user_password';
+mysql> FLUSH PRIVILEGES;
+mysql> SELECT User, Host, authentication_string FROM mysql.user;
+mysql> GRANT ALL PRIVILEGES ON djangodb.* to user_name@localhost;
+mysql> FLUSH PRIVILEGES;
+mysql> SHOW GRANTS FOR 'user_name'@'localhost';
+mysql> CREATE TABLE student(id INT PRIMARY KEY NOT NULL, name TEXT NOT NULL, age INT NOT NULL);
+mysql> INSERT INTO student VALUES (1, 'Jack Student', 20), (2, 'Yrjö Pulkkinen', 31), (3, 'Arja Hämäläinen', 27);
+mysql> SELECT * FROM student ORDER BY name;
+mysql> DROP TABLE student;
+# control-d will quit mysql and return to normal command line
+# to return to the same database in mysql, type: use djangodb;
+# To make MyQL work with Django you must first install a mysqlclient client with pip3
+# Change the settings.py of Django.py (comment the old settings)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'database_name',
+        'USER': 'user_name',
+        'PASSWORD': 'user_password',
+        'HOST': 'localhost',
+        'PORT': '',
+    }    
+    #'default': {
+    #    'ENGINE': 'django.db.backends.sqlite3',
+    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    #}
+}
+
+# it is generally a good idea to back up the previous db:
+python3 manage.py dumpdata --indent 4 polls > polls.json
+python3 manage.py dumpdata --indent 4 > all.json
+# After changing settings.py to new DB run the migration command
+# which will apply changes in other words, it will create the actual # tables and indexes
+python3 manage.py migrate
+# create a new super user account
+python3 manage.py createsuperuser
+# restore all app data to database 
+python3 manage.py loaddata polls.json
+# load all data from JSON file to database (this might fail due # duplicate keys)
+python3 manage.py loaddata all.json
+Test that everything works with MySQL.
+
+This assignment is submitted to yourname_django repository in GitHub.

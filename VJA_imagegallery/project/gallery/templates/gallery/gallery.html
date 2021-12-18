@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head_content  %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.7.0/simple-lightbox.css"
+  integrity="sha512-8WAX0xL/cHZ38RXoX2gtuqkAwmDVAzGwoFVmHvn46IDHGWOjTHx0vcl9OapNrfOzpFtql0SNkv+0y0b5Fm8ZkA=="
+  crossorigin="anonymous" />
+<link rel="stylesheet" type="text/css" href="{% static 'gallery/css/gallery.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<body>
+<br>
+  {% if gallery %}
+  <h1>{{ gallery.name }}</h1>
+  {{ gallery.description }} </br>
+  <small>By: {{ gallery.owner }}</small></br>
+  {% endif %}
+  <hr>
+  {% if user.id == gallery.owner.id %}
+  <a href="{% url 'add_images' gallery.pk %}" class="btn btn-dark">Add images</a> <a href="{% url 'gallery_image_adaministration' gallery.pk %}" class="btn btn-dark">Delete images</a>
+  {% endif %}
+  <a class="btn btn-dark" href={% url 'home' %}>Back to Galleries</a>
+  <br />
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <!-- PHOTO GALLERY -->
+        <section class="photo_gallery">
+          {% if gallery %}
+          <div class="kuvat ">
+            <ul>
+              {% for gallery_image in gallery.images.all %}
+              <li>
+                  <a href="{{ gallery_image.image.url }}">
+                      <img src="{{ gallery_image.image.url }}" alt="" title="" loading="lazy" /></a>
+              </li>
+              {% endfor %}
+              <li></li>
+            </ul>
+          </div>
+          {% else %}
+          <h2>You have no right to view this gallery.</h2>
+          {% endif %}
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Place at the bottom of the body tag -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.7.0/simple-lightbox.min.js"
+    integrity="sha512-ZajFBgnksNp8Rj+AbmYe8ueOu45HiSjtf3QpqnRbHlq719m6VK0FkbYIqQ8wEnlVuJ1i9pC+z6Z9ewmDnUTMCg=="
+    crossorigin="anonymous">
+  </script>
+  <script>
+    var gallery = new SimpleLightbox(".photo_gallery a");
+  </script>
+
+</body>
+{% endblock %}

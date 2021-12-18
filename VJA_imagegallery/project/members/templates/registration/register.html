@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head_content  %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:100,300,500" />
+<link rel="stylesheet" type="text/css" href={% static 'gallery/css/register.css' %} />
+{% endblock %}
+
+{% block content %}
+<div class="taustakuva-ruutu">
+    <div class="login-ruutu">
+        <h2 class="login-otsikko">Register</h2>
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="id_username">{{ form.username.label }}:</label>
+                    {{form.username}}
+                    <span class="helptext"><small>Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</small></span>
+                    <label for="id_first_name">{{ form.first_name.label }}:</label>
+                    {{form.first_name}}
+                    <label for="id_last_name">{{ form.last_name.label }}:</label>
+                    {{form.last_name}}
+                    <label for="email">{{ form.email.label }}:</label>
+                    {{form.email}}
+                    <label for="password1">{{ form.password1.label }}:</label>
+                    {{form.password1}}
+                    <span class="helptext">
+                        <ul><small>
+                            <li>Your password can’t be too similar to your other personal information.</li>
+                            <li>Your password must contain at least 8 characters.</li>
+                            <li>Your password can’t be a commonly used password.</li>
+                            <li>Your password can’t be entirely numeric.</li></small>
+                        </ul>
+                    </span>
+                    <label for="password2">{{ form.password2.label }}:</label>
+                    {{form.password2}}
+                    <span class="helptext"><small>Enter the same
+                        password as before, for verification.</small></span>
+                    <button type="submit" class="login-button">Register</button>
+                </div>
+            </form>
+        </div>
+        <div class="galert">
+            {% if form.errors %}
+            {% for field in form %}
+            {% for error in field.errors %}
+            {{ error|escape }} <br>
+            {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+            {{ error|escape }} <br>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

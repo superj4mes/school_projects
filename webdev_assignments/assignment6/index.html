@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"
+      integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="main-head">Function Calculator</header>
+      <div class="input-area">
+        <form onsubmit="handleSubmit(event); calc()">
+          <div class="inner-area">
+            <div><label for="func_id">Function f(x)</label></div>
+            <div>
+              <input
+                type="text"
+                id="func_id"
+                size="20"
+                placeholder="e.g. sin(x)"
+                autofocus
+                required
+              />
+            </div>
+            <div><label for="start_x">Start of x range:</label></div>
+            <div><input type="number" id="start_x" size="60" required /></div>
+          </div>
+          <div class="inner-area">
+            <div><label for="end_x">End of x range:</label></div>
+            <div><input type="number" id="end_x" size="60" required /></div>
+            <div><label for="step_x">Step of x range:</label></div>
+            <div>
+              <input
+                type="number"
+                id="step_x"
+                size="60"
+                min="0.1"
+                step="0.1"
+                required
+              />
+            </div>
+          </div>
+          <div class="submit">
+            <input type="submit" value="Send" />
+          </div>
+        </form>
+        <br />
+      </div>
+      <div class="content">
+        <canvas id="lineChart"></canvas>
+      </div>
+      <div class="output-area">
+        <label for="output">Output:</label><br />
+        <output id="output"></output>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

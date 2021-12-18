@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head_content %}
+<link rel="stylesheet" type="text/css" href={% static 'gallery/css/gallery_administration.css' %} />
+{% endblock %}
+
+{% block content %}
+<br />
+
+<h1>Gallery Administration | Edit Your Galleries</h1>
+
+<label for="id_selectbox">Order galleries by:</label>
+<select class="form-select form-select-sm" onchange="sortelements.call(this, event)" id="id_selectbox">
+    <option data-sorttype="desc" value="str">Name descending</option>
+    <option data-sorttype="asc" value="str">Name ascending</option>
+    <option data-sorttype="desc" value="date">Date descening</option>
+    <option data-sorttype="asc" value="date">Date ascending</option>
+</select>
+<div class="content-center">
+<div id="sortbody" class="row">
+  {% if list_of_galleries %}
+  {% for gallery, images in list_of_galleries.items %}
+  <div data-time="{{ gallery.time|date:'c' }}" class="col-xl-3 col-lg-4 col-md-6 col-xs-12 img-outer sortparent">
+    <form class="form-center" method="GET" name="{{ gallery.id }}" action="gallery/{{ gallery.id }}/remove">
+      {% csrf_token %}
+      <div class="row">
+        <div class="cardcont card">
+          <div class="row">
+            {% for image in images %} {% if forloop.counter <= 3 %}
+            <div class="col-xl-4 col-md-4 col-sm-4 col-xs-4 d-flex justify-content-center">
+              <a href="/gallery/gallery_image_administration/{{ gallery.id }}" class="d-block mb-4 h-100">
+                <img style="" class="img-fluid rounded" src="{{ image.thumbnail_small.url }}" alt="{{ image.title }}" />
+              </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+          </div>
+          <span class="imagedesc"><small>Gallery: </small><strong data-str="">{{ gallery.name }}</strong><br />
+            <small>Uploaded: {{ gallery.time|date:"d.m.Y"}}</small></span>
+          <div class="btn-group btn-group-justified">
+            <input class="btn btn-dark btn-block" type="submit" name="submit" value="Delete" />
+            <a href="/gallery/{{ gallery.id }}/update" class="btn btn-secondary btn-sm">Update</a></div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  {% endfor %}
+  </div>
+  {% else %}
+  <h1>You don't have any galleries to edit.</h1>
+  {% endif %}
+</div>
+<script src={% static 'gallery/js/sort.js' %}></script>
+{% endblock %}

@@ -1,0 +1,8 @@
+body {
+    background: black; color: white;
+    font-family: Verdana, sans-serif;
+}
+
+li a {
+    color: green;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<head>
+   <title>HTML Form Assignment</title>
+   <meta charset="utf-8" />
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+   <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+      />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+   <script src="script.js"></script>
+   <style type='text/css'>
+    html { background-color: #333; }
+    @media only screen and (min-width: 1025px){
+        .ui-page {
+            width: 960px !important;
+            margin: 0 auto !important;
+            position: relative !important;
+        }
+    
+</style>
+</head>
+<body style="max-width: max-content;
+margin: auto; text-align: center; display:flex; flex-direction:column; justify-content:center;
+  min-height:100vh;">
+   <div id="container">
+      <form onsubmit="validateForm(event)" action="">
+         <h1>FORM ASSIGNMENT : <br />Jesse Strömberg</h1>
+         <label for="fullname">Full Name:</label>
+         <br />
+         <input
+            type="text"
+            id="fullname"
+            size="60"
+            maxlength="80"
+            placeholder="Please fill this field."
+            autofocus
+            required
+            />
+         <br />
+         <label for="password1">Your password:</label>
+         <br />
+         <input
+            type="password"
+            size="50"
+            id="password1"
+            name="password1"
+            placeholder="Please fill this field."
+            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_;:,.]).{8,20}$"
+            title="Must contain at least one number, one uppercase and lowercase letter, one special character and 8 to 20 characters"
+            required
+            />
+         <br />
+         <label for="password2">Your password repeated:</label>
+         <br />
+         <input
+            type="password"
+            size="50"
+            id="password2"
+            name="password2"
+            placeholder="Please fill this field."
+            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_;:,.]).{8,20}$"
+            title="Must contain at least one number, one uppercase and lowercase letter, one special character and 8 to 20 characters"
+            required
+            />
+         <br />
+         <p id="error_message" class="error"></p>
+         <label for="gender_general">Gender:</label>
+         <input
+            type="radio"
+            name="gender"
+            id="gender_male"
+            value="male"
+            required
+            placeholder="Please select one of these."
+            />
+         <label for="gender_male">male</label>
+         <input type="radio" name="gender" id="gender_female" value="female" />
+         <label for="gender_female">female</label>
+         <input type="radio" name="gender" id="gender_other" value="other" />
+         <label for="gender_other">other</label>
+         <br />
+         <label for="hobby_">Hobbies:</label>
+         <input type="checkbox" name="hobby" value="sports" id="hobby_sports" />
+         <label for="hobby_sports">sports</label>
+         <input type="checkbox" name="hobby" value="tv" id="hobby_tv" />
+         <label for="hobby_tv">tv</label>
+         <input type="checkbox" name="hobby" value="games" id="hobby_games" />
+         <label for="hobby_games">games</label>
+         <input type="checkbox" name="hobby" value="music" id="hobby_music" />
+         <label for="hobby_music">music</label>
+         <br />
+         <label for="birthdate">Birthdate:</label>
+         <input
+            type="date"
+            name="birthdate"
+            id="birthdate"
+            min="1900-01-01"
+            max="2030-01-01"
+            placeholder="Please fill this field."
+            required
+            />
+         <br />
+         <label for="id_number_input">Height (cm):</label>
+         <input
+            type="range"
+            id="id_number_input"
+            min="40"
+            max="300"
+            value="175"
+            step="1"
+            required
+            oninput="id_number_output.value = this.value"
+            />
+         <input
+            type="number"
+            id="id_number_output"
+            value="175"
+            min="40"
+            max="300"
+            step="1"
+            oninput="id_number_input.value = this.value"
+            />
+         <br />
+         <label for="color">Favorite color:</label>
+         <input type="color" id="myColor" />
+         <br />
+         <label for="country">Country:</label>
+         <select name="country" id="country">
+            <option value="fi">Finland</option>
+            <option value="ru">Russia</option>
+            <optgroup label="Scandinavia">
+               <option value="de">Denmark</option>
+               <option value="no">Norway</option>
+               <option value="sv">Sweden</option>
+            </optgroup>
+            <optgroup label="Baltic">
+               <option value="es">Estonia</option>
+               <option value="lv">Latvia</option>
+               <option value="lt">Lithuania</option>
+            </optgroup>
+         </select>
+         <br />
+         <label for="profession">Profession:</label>
+         <br />
+         <input list="professions" id="profession" name="profession" size="40" />
+         <datalist id="professions">
+            <option value="nurse"></option>
+            <option value="teacher"></option>
+            <option value="plumber"></option>
+            <option value="bureaucrat"></option>
+         </datalist>
+         <br />
+         <label for="id_message">Message:</label><br />
+         <textarea
+            name="message"
+            id="id_message"
+            rows="6"
+            cols="60"
+            maxlength="1000"
+            placeholder="Type here your message. Max 1000 characters."
+            required
+            ></textarea>
+         <br />
+         <input type="submit" value="Send" class="submit" />
+         <br />
+         <hr />
+         <label for="output">Result:</label><br />
+         <output id="output"></output>
+      </form>
+   </div>
+</body>
+</html>

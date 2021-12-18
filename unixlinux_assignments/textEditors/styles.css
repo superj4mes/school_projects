@@ -1,0 +1,252 @@
+body {
+    background-image: url(img/bg2.jpg);
+    max-width: 1000px;
+    width: 1000px;
+    height: 100%;
+    margin: 35px auto;
+    float: none;
+    font-family: 'Lobster', cursive;
+    text-align: left;
+    border: 1px solid black;
+}
+
+body.omena {
+    background-image: url(img/omenabg3.jpg);
+    max-width: 1000px;
+    width: 1000px;
+    height: 100%;
+    margin: 35px auto;
+    float: none;
+    font-family: 'Lobster', cursive;
+    text-align: left;
+    border: 1px solid black;
+}
+
+body.banana {
+    background-image: url(img/bananabg2.jpg);
+    max-width: 1000px;
+    width: 1000px;
+    height: 100%;
+    margin: 35px auto;
+    float: none;
+    font-family: 'Lobster', cursive;
+    text-align: left;
+    border: 1px solid black;
+}
+
+a:link {
+    color: brown;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:visited {
+    color: brown;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000000;
+    background-color: #e6cdb7;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #e6cdb7;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+h1{
+    margin-top: 35px;
+    margin-bottom: 0px;
+    padding: 0px;
+    font-size: 300%;
+    text-decoration: underline;
+}
+
+h2 {
+
+    margin-left: 50px;
+    font-size: 200%;
+    text-decoration: underline;
+}
+
+h3{
+    margin-bottom:0px;
+    margin-left: 50px;
+    font-size: 100%;
+}
+
+p {
+    margin-bottom:0px;
+    margin-left: 0px;
+    font-size: 100%;
+}
+
+img {
+    padding: 5px;
+    margin-left: 20px;
+    width: 400px;
+    height: 400px;
+}
+
+#box1 {
+    text-align: left;
+    padding: 2px;
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+    background-color: #e6cdb7;
+    border: 1px solid black;
+    box-shadow: 5px 7px;
+}
+
+#box2 {
+    text-align: left;
+    padding: 2px;
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+    background-color: #e6cdb7;
+    border: 1px solid black;
+    box-shadow: 5px 7px;
+}
+
+#footerlinks {
+    text-align: left;
+    padding: 2px;
+    margin: 0 auto;
+    width: 90%;
+    height: 200%;
+    padding-bottom: 30px;
+}
+
+#main {
+    text-align: left;
+    padding-left: 15px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    background-color: #f3f2f0;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#header {
+    background-color: #f3f2f0;
+    width: 90%;
+    padding: 5px;
+    margin: 0 auto;
+}
+body {
+	background-image: url(img/bg2.jpg);
+	max-width: 1000px;
+	width: 1000px;
+	height: 100%;
+	margin: 35px auto; 
+	float: none;
+	font-family: 'Lobster', cursive;
+	text-align: left;
+	border: 1px solid black;
+}
+
+a:link {
+  color: brown;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: brown;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000000;
+  background-color: #e6cdb7;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #e6cdb7;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+h1	{
+	margin-top: 35px;
+	margin-bottom: 0px;
+	padding: 0px;
+	font-size: 300%;
+	text-decoration: underline;
+	}
+
+h2 {
+	
+	margin-left: 50px;
+	font-size: 200%;
+	text-decoration: underline;
+}
+
+h3	{
+	margin-bottom:0px;
+	margin-left: 50px;
+	font-size: 100%;
+}
+
+p { 
+	margin-bottom:0px;
+	margin-left: 0px;
+	font-size: 100%;
+}
+
+img { 
+	padding: 5px;
+	margin-left: 20px;
+	width: 400px;
+	height: 400px;
+}
+
+#box1 {
+	text-align: left;
+	padding: 2px;
+	margin: 0 auto;
+	width: 90%;
+	height: 100%;
+	background-color: #e6cdb7;
+	border: 1px solid black;
+	box-shadow: 5px 7px;
+}
+
+#box2 {	
+	text-align: left;
+	padding: 2px;
+	margin: 0 auto;
+	width: 90%;
+	height: 100%;
+	background-color: #e6cdb7;
+	border: 1px solid black;
+	box-shadow: 5px 7px;
+}
+
+#footerlinks {	
+	text-align: left;
+	padding: 2px;
+	margin: 0 auto;
+	width: 90%;
+	height: 200%;
+	padding-bottom: 30px;
+}
+
+#main {
+	text-align: left;
+	padding-left: 15px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	background-color: #f3f2f0;
+	background-size: contain;
+	background-repeat: no-repeat;	
+}
+

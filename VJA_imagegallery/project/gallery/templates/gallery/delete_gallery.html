@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block extra_head_content  %}
+<link rel="stylesheet" type="text/css" href={% static 'gallery/css/delete_gallery.css' %} />
+{% endblock %}
+
+{% block content %}
+<br />
+{% if user.id == gallery.owner.id %}
+
+<div class="taustakuva-ruutu">
+    <div class="login-ruutu">
+        <h3 class="login-otsikko">Delete Gallery: {{ gallery.name }}</h3>
+        <div class="input-group">
+        <h3>Are you sure!?</h3><br>
+            <form method="POST">
+                {% csrf_token %}
+                <button class="btn btn-secondary">Delete</button>
+                <a href="{% url 'gallery_administration' %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+        <div id="error">
+            {{ form.errors }}
+        </div>
+    </div>
+</div>
+{% else %}
+<h1>You have no right to be here! ...And you know it!</h1>
+{% endif %}
+{% endblock %}

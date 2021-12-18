@@ -1,0 +1,11 @@
+#error ul {
+    list-style: none;
+	color: antiquewhite;
+}
+
+[type="checkbox"]{
+  width: 30px !important;
+  height: 30px !important;
+  margin: 5px;
+  filter: grayscale(1);
+}

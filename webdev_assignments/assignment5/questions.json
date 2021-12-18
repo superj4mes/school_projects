@@ -1,0 +1,47 @@
+[
+  {
+    "question": "What is the most common colour of toilet paper in France?",
+    "answers": {
+      "a": "Pink",
+      "b": "White",
+      "c": "Purple"
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Native to the Caribbean, what sort of animal is the mountain chicken?",
+    "answers": {
+      "a": "Frog",
+      "b": "Chicken",
+      "c": "Goat"
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "What is the cross between a donkey and a zebra known as?",
+    "answers": {
+      "a": "Donkzee",
+      "b": "Zeedonk",
+      "c": "It has no name"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Henry VIII introduced which tax in England in 1535?",
+    "answers": {
+      "a": "Hair tax",
+      "b": "Beard tax",
+      "c": "Horse tax"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "What were the first ice hockey pucks made out of?",
+    "answers": {
+      "a": "Vulcanized rubber",
+      "b": "Leather and rock",
+      "c": "Frozen cow dung"
+    },
+    "correctAnswer": "c"
+  }
+]

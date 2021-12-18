@@ -1,0 +1,92 @@
+.cardcont {
+  border: 2px solid black;
+  margin: 1em;
+  flex-basis: auto;
+  flex: auto;
+  width: 80%;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0.2em 0.2em 2em 0.1em #3d3b3b;
+  background-color: #212429;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.cardcont img {
+  border-radius: 10px;}
+
+.img-inner {
+  height: 100%;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.imagedesc {
+  text-align: center;
+  font-size: larger;
+}
+
+.form-center {
+	display:flex;
+	justify-content: center;
+}
+
+.photocontainer {
+  background-color: rgb(33, 36, 41);
+	opacity: 0.8;
+  height: 95%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: row;
+  background-attachment: fixed;
+  border: 2px solid black;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.btn {
+  padding: 10px 30px;
+  width: 100%;
+  background-color: hsla(0, 0%, 53%, 0.3);
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid hsl(0, 0%, 0%);
+  font-size: 1.5em;
+  color: white;
+  font-weight: lighter;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: hsla(0, 8%, 70%, 0.3);
+}
+
+.form-select {
+  width: 12rem;
+  background-color: #272626;
+  opacity: 0.8;
+  color: white;
+  border: #212429;
+}
+
+.form-select:focus {
+  outline:none;
+  box-shadow: none;
+  background-color: #272626;
+}
+
+.content-center {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  flex-wrap: wrap;
+}

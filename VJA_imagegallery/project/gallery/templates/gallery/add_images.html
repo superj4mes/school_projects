@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head_content %}
+<link rel="stylesheet" type="text/css" href={% static 'gallery/css/add_images.css' %} />
+{% endblock %}
+
+{% block content %}
+
+<div class="taustakuva-ruutu">
+    <div class="login-ruutu">
+        <h3 class="login-otsikko">Add images</h3>
+        <div class="input-group">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="image" accept="image/*" multiple required id="id_image">
+                <button type="submit" class="login-button">Submit</button>
+            </form>
+            <br>
+            <a href="{% url 'gallery' gallery.id %}">Cancel</a>
+        </div>
+        <div id="error">
+            {{ form.errors }}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

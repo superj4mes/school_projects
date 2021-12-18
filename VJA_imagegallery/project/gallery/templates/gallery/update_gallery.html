@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_head_content  %}
+<link rel="stylesheet" type="text/css" href={% static 'gallery/css/update_gallery.css' %} />
+{% endblock %}
+
+{% block content %}
+<div class="taustakuva-ruutu">
+    <div class="login-ruutu">
+        <h3 class="login-otsikko">Update Gallery: <br/> {{gallery.name}} </h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="name">{{ form.name.label }}:</label>
+                {{form.name}}
+                <label for="ispublic">Public gallery:</label>
+                    {{ form.ispublic }}
+                <label for="description">{{ form.description.label }}:</label>
+                {{form.description}}
+                <button class="login-button">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script>
+$(function() {
+  var f = function() {
+    $(this).next().text($(this).is(':checked') ? ':checked' : ':not(:checked)');
+  };
+  $('input').change(f).trigger('change');
+});
+</script>
+{% endblock %}

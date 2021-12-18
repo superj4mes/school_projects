@@ -1,0 +1,11 @@
+#error{
+	color: antiquewhite;
+}
+
+a {
+	color: rgb(124, 124, 124);
+}
+
+a:hover {
+	color: antiquewhite;
+}
